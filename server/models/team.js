@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 const teamSchema = new mongoose.Schema({
     name: String,
     description: String,
-    members: String,
+    members: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    }],
     messages: [{
         sentBy: mongoose.Schema.Types.ObjectId,
         date: Date,

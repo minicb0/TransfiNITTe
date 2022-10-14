@@ -30,7 +30,7 @@ exports.register = async(req, res) => {
             mail: email,
             password: encryptedPassword,
             name: name,
-            type: type
+            department: department
         });
 
         const token = jwt.sign({ user_id: created._id, email },
@@ -101,3 +101,6 @@ exports.newInfo = async (req, res) => {
         req: req.user
     })
 }*/
+exports.showProfile = (req,res) => {
+    
+};
