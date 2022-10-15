@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:placements/pages/home/admin_home.dart';
 import 'package:placements/pages/home/student_home.dart';
 import 'package:placements/pages/signup.dart';
+import 'package:placements/pages/stats.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);

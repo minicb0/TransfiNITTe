@@ -31,7 +31,7 @@ class AdminHomeState extends State<AdminHome> {
           title: const Text("Admin - Home"),
           centerTitle: true,
         ),
-        body: Text("Hi"),
+        body: page[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
