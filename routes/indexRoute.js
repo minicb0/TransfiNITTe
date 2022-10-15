@@ -25,7 +25,7 @@ router.post('/fillForm', async (req, res) => {
             
             .screenshotSelector('#captchaDetailImg')
             .then((data) => {
-                fs.writeFileSync('public/images/cap.jpg', data);
+                fs.writeFileSync('public/images/caphbh.jpg', data);
 
 
                 // capText="";
