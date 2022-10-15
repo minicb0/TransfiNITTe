@@ -25,14 +25,14 @@ router.post('/fillForm', async (req, res) => {
             
             .screenshotSelector('#captchaDetailImg')
             .then((data) => {
-                fs.writeFileSync('public/cap.jpg', data);
+                fs.writeFileSync('public/images/cap.jpg', data);
 
 
-                capText="";
+                // capText="";
             })
-            .evaluateWithCallback(function (callback) {
+            // .evaluateWithCallback(function (callback) {
                 
-            })
+            // })
             // .type('#name1', "kalimuthu")
             // .type('#txtFName', "periyaswamy")
             // .select('#ageList', "number:66")
