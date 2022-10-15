@@ -1,0 +1,32 @@
+{
+  "name": "transfinitte",
+  "version": "1.0.0",
+  "description": "This repo is to hold the task of TransfiNITTe Hackathon. We  have made this project under the sponsor challenge by _____. A app based on mis/disinformaton.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minicb0/TransfiNITTe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minicb0/TransfiNITTe/issues"
+  },
+  "homepage": "https://github.com/minicb0/TransfiNITTe#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5"
+  }
+}
