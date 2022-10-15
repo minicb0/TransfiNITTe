@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:placements/pages/home/admin_home.dart';
+import 'package:placements/pages/home/student_home.dart';
+import 'package:placements/pages/signup.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -78,7 +81,9 @@ class LoginPageState extends State<LoginPage> {
                             minimumSize: const Size.fromHeight(50),
                           ),
                           child: const Text('Log In'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const AdminHome()));
+                          },
                         )),
                     TextButton(
                       onPressed: () {},
@@ -134,11 +139,13 @@ class LoginPageState extends State<LoginPage> {
                             minimumSize: const Size.fromHeight(50),
                           ),
                           child: const Text('Log In'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentHome()));
+                          },
                         )),
                     TextButton(
                       onPressed: () {
-                        
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp()));
                       },
                       child: Text(
                         'Sign Up',
