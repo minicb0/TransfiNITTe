@@ -82,7 +82,7 @@ router.post('/fillForm', async (req, res) => {
                             "firstName": "Gayathri",
                             "lastName": "",
                             "male": false
-                          }
+                          },
                           {
                             "firstName": "Priya",
                             "lastName": "",
