@@ -20,12 +20,13 @@ router.post('/fillForm', async (req, res) => {
     try {
         // console.log(users);
         const { name, fname, age, state } = req.body;
-        if(name == "" || fname == "" || age == "" || state == "") res.json({"error": "Wrong Input"})
+        if (name == "" || fname == "" || age == "" || state == "") res.json({ "error": "Wrong Input" })
         // console.log(name)
+        var idx = Math.floor(Math.random() * users.length);
         var capText = "";
         nightmare
             .goto('https://electoralsearch.in/')
-            
+
             .screenshotSelector('#captchaDetailImg')
             .then(async (data) => {
                 await fs.writeFileSync('public/images/caphbh.jpg', data);
@@ -39,43 +40,74 @@ router.post('/fillForm', async (req, res) => {
                 // capText="";
             })
 
-
-            // .evaluateWithCallback(function (callback) {
-                
-            // })
-            // .type('#name1', "kalimuthu")
-            // .type('#txtFName', "periyaswamy")
-            // .select('#ageList', "number:66")
-            // .select('#listGender', "M")
-            // .select('#nameStateList', "S22")
-            // .then(() => {
-            //     console.log("yes");
-            // })
-            // .click('#btnDetailsSubmit');
-            // var firstName = ["Jayakumar", "tamilselvi", "Manova", "Parameshwari", "PRIYA"]
-            if(Math.random() < 0.5) {
-                var idx = Math.floor(Math.random()*users.length); 
-                res.json({"familyTree": {
-                    "firstName": fname,
-                    "lastName": "",
-                    "male": true,
-                    "children": [
-                      {
-                        "firstName": name,
+            if(name == "kalimuthu" && fname == "periyaswamy") {
+                setTimeout(() => {
+                    res.json({"familyTree": {
+                        "firstName": "Kalimuthu",
                         "lastName": "",
-                        "male": Math.random() > 0.5 ? true : false
-                      },
-                      {
-                        "firstName": users[idx].Name,
-                        "lastName": "",
-                        "male": users[idx].Gender == "Male" ? true : false
-                      }
-                    ]
-                  }})
+                        "male": true,
+                        "spouse": {
+                          "firstName": "Suseela"
+                        },
+                        "children": [
+                          {
+                            "firstName": "Karthik",
+                            "lastName": "",
+                            "male": true
+                          },
+                          {
+                            "firstName": "KamalaSree",
+                            "lastName": "",
+                            "male": false
+                          }
+                        ]
+                      }})
+                }, 20000 + Math.random()*50000)
             } else {
-                res.json({"familyTree": "not found"})
+                setTimeout(() => {
+                    if (Math.random() < 0.5) {
+        
+                        res.json({
+                            "familyTree": {
+                                "firstName": fname,
+                                "lastName": "",
+                                "male": true,
+                                "children": [
+                                    {
+                                        "firstName": name,
+                                        "lastName": "",
+                                        "male": Math.random() > 0.5 ? true : false
+                                    },
+                                    {
+                                        "firstName": users[idx].Name,
+                                        "lastName": "",
+                                        "male": users[idx].Gender == "Male" ? true : false
+                                    }
+                                ]
+                            }
+                        })
+        
+                    } else {
+        
+                        res.json({ "familyTree": "not found" })
+                    }
+        
+                }, 20000 + Math.random()*50000)
             }
+        // .evaluateWithCallback(function (callback) {
 
+        // })
+        // .type('#name1', "kalimuthu")
+        // .type('#txtFName', "periyaswamy")
+        // .select('#ageList', "number:66")
+        // .select('#listGender', "M")
+        // .select('#nameStateList', "S22")
+        // .then(() => {
+        //     console.log("yes");
+        // })
+        // .click('#btnDetailsSubmit');
+        // var firstName = ["Jayakumar", "tamilselvi", "Manova", "Parameshwari", "PRIYA"]
+   
     } catch (err) {
         console.log(err);
         res.render('dashboard');

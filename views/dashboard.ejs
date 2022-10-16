@@ -15,29 +15,36 @@
 <body style="height: 100vh;">
     <div class="wrapper">
         <div class="main_content">
-            <div class="info">
+
+            <div id="load" class="mainDIv hide">
+                
+                <div class="loader"></div>
+            </div>   
+            <div id="infor" class="inforrr hide">Working on the script! Kindly Wait. Usually it takes upto 1 minute...</div>
+            <div class="info" id="info">
+
                 <%- include('./partials/header.ejs'); %>
                     <div class="row">
                         <div class="container">
                             <h2>Dashboard</h2>
                         <form action="/fillForm" method="POST">
                             <div class="col-3 input-effect">
-                                <input class="effect-14" type="text" placeholder="" name="name" required>
+                                <input class="effect-14" type="text" placeholder="" name="name" required id="name">
                                 <label>Name<span style="color: red;">(*)</span></label>
                                 <span class="focus-border"></span>
                             </div>
                             <div class="col-3 input-effect">
-                                <input class="effect-14" type="text" placeholder="" name="fname" required>
+                                <input class="effect-14" type="text" placeholder="" name="fname" required id="fname">
                                 <label>Father's/Husband's Name<span style="color: red;">(*)</span></label>
                                 <span class="focus-border"></span>
                             </div>
                             <div class="col-3 input-effect">
-                                <input class="effect-14" type="text" placeholder="" name="age" required>
+                                <input class="effect-14" type="text" placeholder="" name="age" required id="age">
                                 <label>Age<span style="color: red;">(*)</span></label>
                                 <span class="focus-border"></span>
                             </div>
                             <div class="col-3 input-effect">
-                                <input class="effect-14" type="text" placeholder="" name="state" required>
+                                <input class="effect-14" type="text" placeholder="" name="state" required id="state">
                                 <label>State<span style="color: red;">(*)</span></label>
                                 <span class="focus-border"></span>
                             </div>
@@ -57,7 +64,7 @@
                                 <span class="focus-border"></span>
                             </div>
                             <div class="col-3 input-effect">
-                                <button type="submit" class="submit">Submit</button>
+                                <button type="submit" id="submit" class="submit">Submit</button>
                             </div>
                         </form>
                             
@@ -67,17 +74,22 @@
         </div>
     </div>
     <script>
-    	$(window).load(function(){
-		$(".col-3 input").val("");
-		
-		$(".input-effect input").focusout(function(){
-			if($(this).val() != ""){
-				$(this).addClass("has-content");
-			}else{
-				$(this).removeClass("has-content");
-			}
-		})
-	});
+        const name = document.getElementById('name')
+        const fname = document.getElementById('fname')
+        const age = document.getElementById('age')
+        const state = document.getElementById('state')
+        const info = document.getElementById('info')
+        document.getElementById('submit').addEventListener('click', () => {
+            handleSubmit();
+        })
+        function handleSubmit() {
+            if(name.value != "" && fname.value != "" && age.value !="" && state.value !="") {
+                document.getElementById('load').classList.remove('hide')
+                document.getElementById('infor').classList.remove('hide')
+                document.getElementById('info').classList.add('hide')
+            }
+            
+        }
     </script>
 </body>
 
