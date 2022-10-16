@@ -20,6 +20,7 @@ router.post('/fillForm', async (req, res) => {
     try {
         // console.log(users);
         const { name, fname, age, state } = req.body;
+        if(name == "" || fname == "" || age == "" || state == "") res.json({"error": "Wrong Input"})
         // console.log(name)
         var capText = "";
         nightmare
@@ -53,20 +54,21 @@ router.post('/fillForm', async (req, res) => {
             // .click('#btnDetailsSubmit');
             // var firstName = ["Jayakumar", "tamilselvi", "Manova", "Parameshwari", "PRIYA"]
             if(Math.random() < 0.5) {
+                var idx = Math.floor(Math.random()*users.length); 
                 res.json({"familyTree": {
-                    "firstName": name,
+                    "firstName": fname,
                     "lastName": "",
-                    "male": false,
+                    "male": true,
                     "children": [
                       {
-                        "firstName": users[Math.floor(Math.random()*users.length)].Name,
+                        "firstName": name,
                         "lastName": "",
-                        "male": true
+                        "male": Math.random() > 0.5 ? true : false
                       },
                       {
-                        "firstName": users[Math.floor(Math.random()*users.length)].Name,
+                        "firstName": users[idx].Name,
                         "lastName": "",
-                        "male": false
+                        "male": users[idx].Gender == "Male" ? true : false
                       }
                     ]
                   }})
