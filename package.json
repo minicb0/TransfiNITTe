@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/minicb0/TransfiNITTe#readme",
   "dependencies": {
+    "axios": "^1.1.3",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
